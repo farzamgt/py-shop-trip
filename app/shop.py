@@ -10,7 +10,8 @@ class Shop:
     def has_all_products(self, cart: dict[str, int]) -> bool:
         return all(item in self.products for item in cart)
 
-    def calculate_cart_total(self, cart: dict[int, str]) -> float:
+    def calculate_cart_total(self, cart: dict[str, int]) -> float:
+
         return sum(
             self.products[item] * quantity
             for item, quantity in cart.items()

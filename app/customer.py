@@ -19,8 +19,10 @@ class Customer:
         return fuel_used * fuel_price
 
     def can_afford(self, shop: Shop, fuel_price: float) -> bool:
-        total_cost = self.calculate_trip_cost(shop, fuel_price) + \
-            shop.calculate_cart_total(self.cart)
+        total_cost = (
+            self.calculate_trip_cost(shop, fuel_price)
+            + shop.calculate_cart_total(self.cart)
+        )
         return self.money >= total_cost
 
     def go_to_shop(self, shop: Shop) -> None:
